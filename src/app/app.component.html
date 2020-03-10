@@ -1,17 +1,11 @@
 <div>
-  Welcome to angular PrimeNG components Demo
+  Welcome to Editor
 </div>
-<p-panel header="Controls">
-  <div class="ui-g">
-    <a class="ui-g-2" routerLink="/tree">TreeView</a>
-    <a class="ui-g-2" routerLink="/menu">Menu</a>
-    <a class="ui-g-2" routerLink="/editor">Editor</a>
-    <a class="ui-g-2" routerLink="/datatable">Data Table</a>
-    <a class="ui-g-2" routerLink="/tablewithfilter">Table Filter</a>
-  </div>
-</p-panel>
-<br />
-<br />
-<div>
-  <router-outlet></router-outlet>
-</div>
+<ckeditor [(ngModel)]="contentdata.Content" #PageContent="ngModel" name="PageContent" required    
+[config]="ckeConfig" debounce="500">    
+</ckeditor>
+<div class="row">    
+  <div class="col-3 col-md-3 mb-3">    
+      <button type="submit" class="btn btn-info" (click)="onSubmit()">Submit</button>    
+  </div>    
+</div> 

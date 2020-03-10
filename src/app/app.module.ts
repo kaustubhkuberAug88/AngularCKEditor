@@ -8,34 +8,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 
-import { TreeModule } from 'primeng/tree';
-import { TreeDragDropService } from 'primeng/api';
-import { PanelModule } from 'primeng/panel'
-import { MenuModule } from 'primeng/menu';
-import { EditorModule } from 'primeng/editor';
-import { TableModule } from 'primeng/table';
-import { InputTextModule } from 'primeng/inputtext';
-import { SliderModule } from 'primeng/slider';
-import {ButtonModule} from 'primeng/button';
-// import { DropdownModule } from 'primeng/dropdown';
-// import { MultiSelectModule } from 'primeng/multiselect';
-
-import { TreeViewComponent } from './tree-view/tree-view.component';
-import { MenuComponent } from './menu/menu.component';
-import { EditorComponent } from './editor/editor.component';
-import { DatatableComponent } from './datatable/datatable.component';
-import { TablewithfilterComponent } from './tablewithfilter/tablewithfilter.component';
-
-
+import { CKEditorModule } from 'ng2-ckeditor';  
 
 @NgModule({
   declarations: [
-    AppComponent,
-    TreeViewComponent,
-    MenuComponent,
-    EditorComponent,
-    DatatableComponent,
-    TablewithfilterComponent
+    AppComponent   
   ],
   imports: [
     BrowserModule,
@@ -43,18 +20,10 @@ import { TablewithfilterComponent } from './tablewithfilter/tablewithfilter.comp
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    TreeModule,
-    PanelModule,
-    MenuModule,
-    EditorModule,
-    TableModule,
-    InputTextModule,
-    SliderModule,
-    // DropdownModule,
-    // MultiSelectModule
-    ButtonModule
+    CKEditorModule
+   
   ],
-  providers: [TreeDragDropService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
