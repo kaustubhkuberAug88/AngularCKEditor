@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
     this.ckeConfig = {    
       allowedContent: false,    
       extraPlugins: 'divarea',    
-      forcePasteAsPlainText: true
+      forcePasteAsPlainText: false
       //,toolbar: [['Bold', 'Italic']]          
     };      
   }
