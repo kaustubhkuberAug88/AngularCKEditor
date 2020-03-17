@@ -1,29 +1,37 @@
-import { Component, OnInit } from '@angular/core';
-import { Content } from './models/Content';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
- 
-  ngOnInit(): void {
-    this.ckeConfig = {    
-      allowedContent: false,    
-      extraPlugins: 'divarea',    
-      forcePasteAsPlainText: false
-      //,toolbar: [['Bold', 'Italic']]          
-    };      
+  name = 'ng2-ckeditor';
+  ckeConfig: any;
+  mycontent: string;
+  log: string = '';
+  @ViewChild("myckeditor",null) ckeditor: any;
+
+  constructor() {
+    this.mycontent = `<p>My html content</p>`;
   }
 
-  onSubmit()    
-  {    
-    console.log(this.contentdata);
-  }   
+  ngOnInit() {
+    this.ckeConfig = {
+      allowedContent: false,
+      extraPlugins: 'divarea',
+      forcePasteAsPlainText: false
+    };
+  }
 
-  title = 'primeng-controls';
-  ckeConfig: any; 
-  contentdata=new Content();
-  
+  onChange(mycontent: string): void {
+    
+    var cont = mycontent.replace(/<(?:.|\n)*?>/gm, '').replace(/(\r\n|\n|\r)/gm,"").replace('&nbsp;','');
+    console.log(cont.trim());
+    //this.log += new Date() + "<br />";
+  }
+
+  onPaste($event: any): void {
+    console.log("onPaste");
+    //this.log += new Date() + "<br />";
+  }
 }
